@@ -33,4 +33,4 @@ Loyiha papkasiga kiring: cd TechZone-Final-2
 index.html faylini istalgan brauzerda oching.
 
 Muallif
-Loyiha SHAYN-JS tomonidan ishlab chiqilgan va Netlify platformasiga muvaffaqiyatli joylashtirilgan.
+Loyiha ozim va AI tomonidan ishlab chiqilgan va Netlify platformasiga muvaffaqiyatli joylashtirilgan.
