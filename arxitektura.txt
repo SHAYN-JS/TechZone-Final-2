@@ -44,3 +44,32 @@ TechZone/
         ├── about.html
         ├── faq.html
         └── shipping.html
+
+
+
+Fayllar tuzilishi va vazifalari
+HTML Fayllar (Sahifalar)
+index.html: Saytning asosiy sahifasi. Unda barcha mahsulotlar katalogi, banerlar va asosiy navigatsiya joylashgan.
+
+cart.html: Savat sahifasi. Foydalanuvchi tanlagan mahsulotlar ro'yxati, ularning soni va umumiy narxi shu yerda ko'rinadi.
+
+search.html: Qidiruv natijalari sahifasi. Foydalanuvchi qidirgan mahsulotlar natijasi shu sahifada aks etadi.
+
+productdetail.html: Mahsulotning batafsil tavsifi. Tanlangan bitta mahsulot haqida to'liq ma'lumot (rasm, tavsif, texnik xususiyatlar) sahifasi.
+
+category.html: Mahsulotlarni kategoriyalar bo'yicha filtrlangan holda ko'rsatadigan sahifa.
+
+about.html: Do'kon haqida ma'lumot beruvchi sahifa.
+
+contact.html: Bog'lanish uchun ma'lumotlar va qayta aloqa formasi.
+
+404.html: Xatolik sahifasi. Agar foydalanuvchi mavjud bo'lmagan sahifaga kirsa, shu fayl ko'rsatiladi.
+
+JavaScript Fayllar (Logika)
+js/main.js: Saytning asosiy logikasi, savatga mahsulot qo'shish va umumiy hisob-kitoblar uchun mas'ul.
+
+js/theme.js: Dark Mode (tun/kun rejimi) logikasi. Quyosh va oy ikonkalari almashishi hamda holatni saqlash uchun.
+
+js/search.js: Sayt ichida mahsulotlarni nomi bo'yicha qidirish va natijalarni chiqarish funksiyasi.
+
+js/toast.js: Mahsulot savatga qo'shilganda ekranda 3 soniya chiqib turadigan xabarnoma (Toast) logikasi.
