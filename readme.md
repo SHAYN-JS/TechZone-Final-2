@@ -1,3 +1,5 @@
+tech-zone-final.netlify.app
+
 # 🛍️ TechZone - E-Commerce Veb Sayti
 
 Bu loyiha HTML, CSS va Vanilla JavaScript yordamida qurilgan zamonaviy, responsiv E-Commerce shablonidir. Loyiha asosan elektronika va texnologiya mahsulotlarini sotishga yo'naltirilgan bo'lib, **ko'p tillilik (UZ/RU/EN)** funksiyasini qo'llab-quvvatlaydi.
