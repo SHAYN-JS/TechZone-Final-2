@@ -1,0 +1,46 @@
+BU PLAIN TEXT ARXITEKTURASI
+TechZone/
+├── index.html
+├── README.md
+├── .gitignore
+├── assets/
+│   ├── css/
+│   │   ├── style.css
+│   │   ├── auth.css
+│   │   ├── responsive.css
+│   │   ├── cart.css
+│   │   └── product-detail.css               
+│   ├── js/
+│   │   ├── database.js
+│   │   ├── auth.js
+│   │   ├── cart.js
+│   │   ├── ui.js
+│   │   └── main.js
+│   └── images/
+│       ├── products/
+│       ├── icons/
+│       └── logo/
+└── pages/
+    ├── auth/
+    │   ├── login.html
+    │   ├── register.html
+    │   ├── security.html
+    │   ├── private.html                              
+    │   └── recover.html
+    ├── shop/
+    │   ├── cart.html
+    │   ├── checkout.html
+    │   ├── product-detail.html                 
+    │   ├── category.html
+    │   ├── compare.html
+    │   └── wishlist.html
+    ├── legal/
+    │   ├── warranty.html
+    │   ├── privacy.html
+    │   ├── terms.html
+    │   └── cookies.html
+    └── support/
+        ├── contact.html
+        ├── about.html
+        ├── faq.html
+        └── shipping.html

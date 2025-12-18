@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Kirish - TechZone</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <style>
+        /* Dark Mode uchun maxsus stillar */
+        :root {
+            --bg-body: #ffffff;
+            --text-main: #333333;
+            --auth-bg: #ffffff;
+            --input-bg: #ffffff;
+            --input-border: #ddd;
+        }
+
+        body.dark-mode {
+            --bg-body: #121212;
+            --text-main: #f1f1f1;
+            --auth-bg: #1e1e1e;
+            --input-bg: #2d2d2d;
+            --input-border: #444;
+        }
+
+        body {
+            background-color: var(--bg-body) !important;
+            color: var(--text-main) !important;
+            transition: 0.3s ease;
+        }
+
+        /* Auth konteynerini dark modega moslash */
+        body.dark-mode .auth-container {
+            background-color: var(--auth-bg);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            color: #fff;
+        }
+
+        body.dark-mode .form-group input {
+            background-color: var(--input-bg);
+            border-color: var(--input-border);
+            color: #fff;
+        }
+
+        body.dark-mode .social-btn {
+            background-color: #2d2d2d;
+            border-color: #444;
+            color: #fff;
+        }
+
+        body.dark-mode .social-divider span {
+            background-color: var(--auth-bg);
+            color: #888;
+        }
+
+        /* Dark Mode tugmasi */
+        #theme-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.3rem;
+            margin-right: 15px;
+            color: inherit;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">TechZone</a>
+                <div class="header-actions">
+                    <button id="theme-btn" title="Rejimni o'zgartirish">
+                        <i id="theme-icon" class="fas fa-moon"></i>
+                    </button>
+                    <a href="register.html" class="btn">Ro'yxatdan o'tish</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="auth-page">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-header">
+                    <h1>Hisobga kirish</h1>
+                    <p>TechZone dagi xaridlaringizni boshqaring</p>
+                </div>
+
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="email">Email yoki Telefon</label>
+                        <input type="text" id="email" name="email" required placeholder="example@gmail.com yoki +998XXYYYYZZ">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Parol</label>
+                        <input type="password" id="password" name="password" required placeholder="Parolingizni kiriting">
+                    </div>
+                    
+                    <div class="forgot-password">
+                        <a href="#">Parolni unutdingizmi?</a>
+                    </div>
+
+                    <button type="submit" class="auth-btn btn btn-accent">Kirish</button>
+                </form>
+
+                <div class="social-auth">
+                    <div class="social-divider">
+                        <span>Yoki ijtimoiy tarmoqlar orqali</span>
+                    </div>
+                    <div class="social-buttons">
+
+                        <button type="button" class="social-btn">
+                            <i class="fa-brands fa-facebook"></i>
+                            Facebook
+                        </button>
+
+                        <button type="button" class="social-btn">
+                            <i class="fa-brands fa-instagram"></i>
+                            Instagram
+                        </button>
+
+                    </div>
+                </div>
+
+                <div class="auth-footer">
+                    Hisobingiz yo'qmi?
+                    <a href="register.html">Ro'yxatdan o'tish</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const themeBtn = document.getElementById('theme-btn');
+        const themeIcon = document.getElementById('theme-icon');
+        const body = document.body;
+
+        if (localStorage.getItem('dark-mode') === 'active') {
+            body.classList.add('dark-mode');
+            if(themeIcon) themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        if (themeBtn) {
+            themeBtn.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                const isActive = body.classList.contains('dark-mode');
+                if(themeIcon) {
+                    themeIcon.classList.replace(isActive ? 'fa-moon' : 'fa-sun', isActive ? 'fa-sun' : 'fa-moon');
+                }
+                localStorage.setItem('dark-mode', isActive ? 'active' : 'inactive');
+            });
+        }
+    </script>
+
+    <script src="js/main.js"></script>
+    <script src="js/theme.js"></script> 
+    <script src="js/auth.js"></script> 
+    <div class="toast-container" id="toastContainer"></div>
+</body>
+</html>

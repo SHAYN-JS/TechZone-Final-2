@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechZone | Texnologiya do'koni</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-body: #ffffff;
+            --text-main: #333333;
+            --card-bg: #ffffff;
+            --header-bg: #ffffff;
+        }
+
+        body.dark-mode {
+            --bg-body: #121212;
+            --text-main: #f1f1f1;
+            --card-bg: #1e1e1e;
+            --header-bg: #1f1f1f;
+        }
+
+        body {
+            background-color: var(--bg-body) !important;
+            color: var(--text-main) !important;
+            transition: 0.3s ease;
+        }
+
+        body.dark-mode header {
+            background-color: var(--header-bg) !important;
+        }
+
+        body.dark-mode .product-card,
+        body.dark-mode .category-card {
+            background-color: var(--card-bg) !important;
+            border: 1px solid #333;
+        }
+
+        body.dark-mode .section-title {
+            color: #fff;
+        }
+
+        body.dark-mode .product-title {
+            color: #fff;
+        }
+
+#theme-btn {
+    color: var(--text-main) !important;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1001;
+}
+body.dark-mode #theme-icon {
+    color: #ffce00 !important; /* Quyoshcha sariq rangda */
+}
+
+        #theme-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .toast-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10000;
+        }
+        
+
+        .toast {
+            background: #1f1f1f;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            margin-top: 10px;
+            animation: slideIn 0.3s ease;
+        }
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">TechZone</a>
+
+                <div class="search-bar">
+                    <input type="text" data-i18n="search_placeholder" placeholder="Mahsulotlarni qidirish..."
+                        id="searchInput">
+                </div>
+
+                <div class="header-actions">
+                    <button id="theme-btn" title="Rejimni o'zgartirish">
+                        <i id="theme-icon" class="fas fa-moon"></i>
+                    </button>
+
+                    <div class="language-selector">
+                        <button class="lang-btn active" data-lang="UZ">UZ</button>
+                        <button class="lang-btn" data-lang="RU">RU</button>
+                        <button class="lang-btn" data-lang="EN">EN</button>
+                    </div>
+
+                    <a href="cart.html" class="cart-icon">
+                        🛒
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+
+                    <div id="authButtons" class="auth-buttons">
+                        <a href="login.html" class="btn" data-i18n="login_btn">Kirish</a>
+                        <a href="register.html" class="btn" data-i18n="register_btn">Ro'yxatdan o'tish</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav class="categories-nav">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="laptops.html" data-i18n="cat_laptops">Noutbuklar</a></li>
+                <li><a href="desktops.html" data-i18n="cat_desktops">Kompyuterlar</a></li>
+                <li><a href="monitors.html" data-i18n="cat_monitors">Monitorlar</a></li>
+                <li><a href="gpu.html" data-i18n="cat_gpu">Videokartalar</a></li>
+                <li><a href="storage.html" data-i18n="cat_storage">SSD va HDD</a></li>
+                <li><a href="products.html" data-i18n="cat_all">Barcha mahsulotlar</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main class="main-content">
+        <div class="container">
+
+            <section class="hero-section" style="margin-bottom: 40px;">
+                <img src="logo images/techzone2.jpg" alt="Asosiy Aksiya Banneri"
+                    style="width:100%; border-radius: 0px;">
+            </section>
+
+            <section class="products-section" id="specialOffersSection">
+                <div class="section-header">
+                    <h2 class="section-title" data-i18n="offers_title">🔥 Maxsus aksiyalar</h2>
+                    <div class="discount-timer" id="discountTimer" data-i18n="timer_text_placeholder">Aksiya tugashiga:
+                        02:15:30</div>
+                </div>
+
+                <div class="products-grid" id="discountProducts">
+
+                    <div class="product-card">
+                        <img src="images//nogiron.jfif" alt="Aksiyadagi Noutbuk" class="product-image">
+                        <h4 class="product-title">Acer Predator Helios 300</h4>
+                        <p class="product-specs">i7 | 16GB | RTX 3060</p>
+                        <p class="product-price"><del style="color: var(--text-secondary);">15 000 000 so'm</del> <span
+                                style="color: var(--accent); font-weight: bold;">12 500 000 so'm</span></p>
+
+                        <button class="btn btn-primary add-to-cart" data-i18n="add_to_cart_btn">Savatga
+                            qo'shish</button>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="images/samsung.jfif" alt="Aksiyadagi Monitor" class="product-image">
+                        <h4 class="product-title">Samsung Odyssey G7</h4>
+                        <p class="product-specs">32" | 240Hz | QHD</p>
+                        <p class="product-price"><del style="color: var(--text-secondary);">7 000 000 so'm</del> <span
+                                style="color: var(--accent); font-weight: bold;">5 800 000 so'm</span></p>
+                        <button class="btn btn-primary add-to-cart" data-i18n="add_to_cart_btn">Savatga
+                            qo'shish</button>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="images/3060.jfif" alt="Aksiyadagi Videokarta" class="product-image">
+                        <h4 class="product-title">RTX 4070 Founders Edition</h4>
+                        <p class="product-specs">12GB VRAM | NVIDIA</p>
+                        <p class="product-price"><del style="color: var(--text-secondary);">11 500 000 so'm</del> <span
+                                style="color: var(--accent); font-weight: bold;">9 999 000 so'm</span></p>
+                        <button class="btn btn-primary add-to-cart" data-i18n="add_to_cart_btn">Savatga
+                            qo'shish</button>
+                    </div>
+
+                </div>
+                <a href="products.html?filter=discount" class="btn btn-secondary load-more" style="margin-top: 20px;"
+                    data-i18n="view_offers_btn">Barcha aksiyalarni ko'rish</a>
+            </section>
+
+            <hr style="border-color: var(--border); margin: 40px 0;">
+
+            <section class="products-section" id="bestSellersSection">
+                <div class="section-header">
+                    <h2 class="section-title" data-i18n="bestsellers_title">⭐ Eng ko'p sotilayotganlar</h2>
+                </div>
+
+                <div class="products-grid" id="bestSellingProducts">
+
+                    <div class="product-card">
+                        <img src="images/gamingz.jfif" alt="Gaming Kompyuter" class="product-image">
+                        <h4 class="product-title">Gaming PC "Mid-Range"</h4>
+                        <p class="product-specs">i5-13400F | 16GB | RTX 4060</p>
+                        <p class="product-price"><span style="color: var(--accent); font-weight: bold;">11 000 000
+                                so'm</span></p>
+                        <button class="btn btn-primary add-to-cart" data-i18n="add_to_cart_btn">Savatga
+                            qo'shish</button>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="images/ssd3.jfif" alt="SSD" class="product-image">
+                        <h4 class="product-title">Samsung 980 Pro SSD 1TB</h4>
+                        <p class="product-specs">1TB | NVMe | Yuqori tezlik</p>
+                        <p class="product-price"><span style="color: var(--accent); font-weight: bold;">1 600 000
+                                so'm</span></p>
+                        <button class="btn btn-primary add-to-cart" data-i18n="add_to_cart_btn">Savatga
+                            qo'shish</button>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="images/asus rog.jfif" alt="Quloqchin" class="product-image">
+                        <h4 class="product-title">Asus ROG Strix G15</h4>
+                        <p class="product-specs">i7 | 16GB | 512SSD | RTX 4060</p>
+                        <p class="product-price"><span style="color: var(--accent); font-weight: bold;">850 000
+                                so'm</span></p>
+                        <button class="btn btn-primary add-to-cart" data-i18n="add_to_cart_btn">Savatga
+                            qo'shish</button>
+                    </div>
+
+                </div>
+                <a href="products.html?sort=popular" class="btn btn-secondary load-more" style="margin-top: 20px;"
+                    data-i18n="view_bestsellers_btn">Barcha bestsellerlarni ko'rish</a>
+            </section>
+
+            <hr style="border-color: var(--border); margin: 40px 0;">
+
+            <section class="products-section" id="newArrivalsSection">
+                <div class="section-header">
+                    <h2 class="section-title" data-i18n="new_arrivals_title">✨ Eng so'nggi texnologiyalar</h2>
+                </div>
+
+                <div class="products-grid" id="newArrivalsProducts">
+
+                    <div class="product-card">
+                        <img src="images/333333333333333.jfif" alt="Mini PC" class="product-image">
+                        <h4 class="product-title">Intel NUC 13 Pro Mini PC</h4>
+                        <p class="product-specs">i7 | 32GB RAM | 1TB SSD | Minimal o'lcham</p>
+                        <p class="product-price"><span style="color: var(--accent); font-weight: bold;">9 500 000
+                                so'm</span></p>
+                        <button class="btn btn-primary add-to-cart" data-i18n="add_to_cart_btn">Savatga
+                            qo'shish</button>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="images/ideapad.jfif" alt="Gaming Klaviatura" class="product-image">
+                        <h4 class="product-title">Razer Huntsman V3 Pro Klaviatura</h4>
+                        <p class="product-specs">Analog Optik Switchlar | 8K Polling</p>
+                        <p class="product-price"><span style="color: var(--accent); font-weight: bold;">2 400 000
+                                so'm</span></p>
+                        <button class="btn btn-primary add-to-cart" data-i18n="add_to_cart_btn">Savatga
+                            qo'shish</button>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="images/nogiron.jfif" alt="Webcam" class="product-image">
+                        <h4 class="product-title">Logitech Brio Stream 4K</h4>
+                        <p class="product-specs">4K Ultra HD | HDR | Stream uchun</p>
+                        <p class="product-price"><span style="color: var(--accent); font-weight: bold;">1 900 000
+                                so'm</span></p>
+                        <button class="btn btn-primary add-to-cart" data-i18n="add_to_cart_btn">Savatga
+                            qo'shish</button>
+                    </div>
+
+                </div>
+                <a href="products.html?sort=new" class="btn btn-secondary load-more" style="margin-top: 20px;"
+                    data-i18n="view_new_btn">Barcha yangi mahsulotlarni ko'rish</a>
+            </section>
+
+            <hr style="border-color: var(--border); margin: 40px 0;">
+
+            <section class="categories-section">
+                <h2 class="section-title" data-i18n="categories_title">Kategoriyalar</h2>
+                <div class="categories-grid">
+
+                    <a href="laptops.html" class="category-card">
+                        <img src="images/asus rog.jfif" alt="Noutbuklar Rasmi" class="category-image">
+                        <h3 data-i18n="cat_laptops">Noutbuklar</h3>
+                    </a>
+
+                    <a href="desktops.html" class="category-card">
+                        <img src="images/gamingz.jfif" alt="Sistem Bloklar Rasmi" class="category-image">
+                        <h3 data-i18n="cat_desktops">Sistem bloklar</h3>
+                    </a>
+
+                    <a href="monitors.html" class="category-card">
+                        <img src="images/samsung.jfif" alt="Monitorlar Rasmi" class="category-image">
+                        <h3 data-i18n="cat_monitors">Monitorlar</h3>
+                    </a>
+
+                    <a href="gpu.html" class="category-card">
+                        <img src="images/3060.jfif" alt="Videokartalar Rasmi" class="category-image">
+                        <h3 data-i18n="cat_gpu">Videokartalar</h3>
+                    </a>
+
+                    <a href="storage.html" class="category-card">
+                        <img src="images/ssd2.jfif" alt="SSD va HDD Rasmi" class="category-image">
+                        <h3 data-i18n="cat_storage">SSD va HDD</h3>
+                    </a>
+
+                </div>
+            </section>
+
+            <hr style="border-color: var(--border); margin: 40px 0;">
+
+            <section class="brands-section">
+                <h2 class="section-title" data-i18n="brands_title">Hamkor brendlar</h2>
+                <div class="brands-grid">
+
+                    <a href="products.html?brand=asus" class="brand-item">
+                        <img src="logo images/download (2).jfif" alt="ASUS Logo" class="brand-logo">
+                    </a>
+
+                    <a href="products.html?brand=dell" class="brand-item">
+                        <img src="logo images/del.png" alt="DELL Logo" class="brand-logo">
+                    </a>
+
+                    <a href="products.html?brand=hp" class="brand-item">
+                        <img src="logo images/hp.png" alt="HP Logo" class="brand-logo">
+                    </a>
+
+                    <a href="products.html?brand=samsung" class="brand-item">
+                        <img src="logo images/samsung.png" alt="SAMSUNG Logo" class="brand-logo">
+                    </a>
+
+                    <a href="products.html?brand=lenovo" class="brand-item">
+                        <img src="logo images/lenova.jfif" alt="LENOVO Logo" class="brand-logo">
+                    </a>
+
+                </div>
+            </section>
+
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>TechZone</h3>
+                    <p data-i18n="footer_slogan">Eng yangi va eng sifatli texnologiya mahsulotlari faqat bizda.
+                        O'zingizga mos kompyuter tizimini yig'ing!</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=100076328040599&locale=ru_RU"
+                            class="social-icon">📘</a>
+                        <a href="https://www.instagram.com/shayn_top/" class="social-icon">📷</a>
+                        <a href="https://github.com/SHAYN-JS/TechZone?tab=readme-ov-file#readme"
+                            class="social-icon">✈️</a>
+                        <a href="#" class="social-icon">📱</a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3 data-i18n="footer_categories_title">Kategoriyalar</h3>
+                    <ul class="footer-links">
+                        <li><a href="laptops.html" data-i18n="cat_laptops">Noutbuklar</a></li>
+                        <li><a href="desktops.html" data-i18n="cat_desktops">Sistem bloklar</a></li>
+                        <li><a href="monitors.html" data-i18n="cat_monitors">Monitorlar</a></li>
+                        <li><a href="gpu.html" data-i18n="cat_gpu">Videokartalar</a></li>
+                        <li><a href="storage.html" data-i18n="cat_storage">SSD va HDD</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3 data-i18n="footer_links_title">Foydali havolalar</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html" data-i18n="footer_about">Biz haqimizda</a></li>
+                        <li><a href="delivery.html" data-i18n="footer_delivery">Yetkazib berish</a></li>
+                        <li><a href="payment.html" data-i18n="footer_payment">To'lov usullari</a></li>
+                        <li><a href="credit.html" data-i18n="footer_credit">Kredit</a></li>
+                        <li><a href="warranty.html" data-i18n="footer_warranty">Kafolat</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3 data-i18n="footer_contact_title">Aloqa</h3>
+                    <ul class="footer-links">
+                        <li>📍 Toshkent sh., Yunusobod tumani</li>
+                        <li>📞 +998 90 123 45 67</li>
+                        <li>✉️ info@techzone.uz</li>
+                        <li data-i18n="footer_hours">🕒 Dushanba - Yakshanba: 9:00 - 20:00</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright" data-i18n="footer_copyright">
+                &copy; 2025 TechZone. Barcha huquqlar himoyalangan.
+            </div>
+        </div>
+    </footer>
+
+<div id="toastContainer" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeBtn = document.getElementById('theme-btn');
+            const themeIcon = document.getElementById('theme-icon');
+            const body = document.body;
+            const cartCountBadge = document.getElementById('cartCount');
+
+            // --- 1. DARK MODE LOGIKASI ---
+            function applyTheme(mode) {
+                if (mode === 'active') {
+                    body.classList.add('dark-mode');
+                    themeIcon.className = 'fas fa-sun';
+                    themeIcon.style.color = '#ffce00'; // Quyoshcha rangi
+                } else {
+                    body.classList.remove('dark-mode');
+                    themeIcon.className = 'fas fa-moon';
+                    themeIcon.style.color = ''; // Asl rangi
+                }
+            }
+
+            // Sahifa yuklanganda holatni tiklash
+            const savedTheme = localStorage.getItem('dark-mode') || 'inactive';
+            applyTheme(savedTheme);
+
+            themeBtn.addEventListener('click', () => {
+                const isDark = body.classList.toggle('dark-mode');
+                const mode = isDark ? 'active' : 'inactive';
+                localStorage.setItem('dark-mode', mode);
+                applyTheme(mode);
+            });
+
+
+            // --- 2. TOAST (XABARNOMA) FUNKSIYASI ---
+            function showToast(productName) {
+                const container = document.getElementById('toastContainer');
+                const toast = document.createElement('div');
+                
+                // Toast stili (3 soniya turishi uchun)
+                toast.style.cssText = `
+                    background: #1f1f1f;
+                    color: white;
+                    padding: 15px 25px;
+                    border-radius: 10px;
+                    border-left: 5px solid #3b82f6;
+                    margin-top: 10px;
+                    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+                    font-family: sans-serif;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    min-width: 250px;
+                    animation: slideIn 0.4s ease forwards;
+                    opacity: 1;
+                    transition: opacity 0.5s ease;
+                `;
+                
+                toast.innerHTML = `<span>✅</span> <div><b>${productName}</b> <br> savatga qo'shildi!</div>`;
+                container.appendChild(toast);
+
+                // 3 soniya ko'rsatib turish
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                    setTimeout(() => toast.remove(), 500);
+                }, 3000); 
+            }
+
+
+            // --- 3. SAVAT LOGIKASI ---
+            function updateCartCount() {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const total = cart.reduce((sum, item) => sum + (Number(item.quantity) || 0), 0);
+                if (cartCountBadge) cartCountBadge.innerText = total;
+            }
+
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const card = this.closest('.product-card');
+                    const name = card.querySelector('.product-title').innerText;
+                    const image = card.querySelector('.product-image').getAttribute('src');
+                    
+                    // Narxni tozalash (so'm va bo'shliqlarni olib tashlash)
+                    const priceEl = card.querySelector('.product-price span') || card.querySelector('.product-price');
+                    const price = parseInt(priceEl.innerText.replace(/[^0-9]/g, '')) || 0;
+
+                    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    const existingItem = cart.find(item => item.name === name);
+
+                    if (existingItem) {
+                        existingItem.quantity = (Number(existingItem.quantity) || 0) + 1;
+                    } else {
+                        cart.push({ name, price, image, quantity: 1 });
+                    }
+
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCartCount();
+                    showToast(name); // Toastni chaqirish
+                });
+            });
+
+            // Birinchi marta yuklanganda savat sonini yangilash
+            updateCartCount();
+        });
+    </script>
+
+    <style>
+        /* Toast chiqib kelish animatsiyasi */
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+    </style>
+
+
+    <div class="toast-container" id="toastContainer"></div>
+</body>
+
+</html>
