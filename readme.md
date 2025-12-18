@@ -1,55 +1,36 @@
-tech-zone-final.netlify.app
+https://tech-zone-final.netlify.app/
 
-# 🛍️ TechZone - E-Commerce Veb Sayti
+TechZone - Elektronika Do'koni
+Jonli demo versiyasi: tech-zone-final.netlify.app
 
-Bu loyiha HTML, CSS va Vanilla JavaScript yordamida qurilgan zamonaviy, responsiv E-Commerce shablonidir. Loyiha asosan elektronika va texnologiya mahsulotlarini sotishga yo'naltirilgan bo'lib, **ko'p tillilik (UZ/RU/EN)** funksiyasini qo'llab-quvvatlaydi.
+Ushbu loyiha zamonaviy texnologiyalar, kompyuter butlovchi qismlari va noutbuklar sotiladigan onlayn do'konning frontend qismidir. Loyiha foydalanuvchilarga mahsulotlarni tanlash, savatga qo'shish va sayt ko'rinishini boshqarish imkonini beradi.
 
-## 🚀 Loyihaning Jonli Havolasi
+Loyiha imkoniyatlari
+Savat tizimi: Mahsulotlar savatga qo'shilganda yuqoridagi savat belgisi soni avtomatik ravishda yangilanadi.
 
-**Jonli versiyani ko'rish:** [TechZone E-Commerce Live Demo]() 
-**(Iltimos, havolani GitHub Pages'dagi o'z manzilingizga almashtiring!)**
+Toast xabarnomalari: Har bir mahsulot savatga qo'shilganda ekranda maxsus xabarnoma paydo bo'ladi. Ushbu xabarnoma foydalanuvchiga halaqit bermasligi uchun 3 soniya davomida ko'rinib turadi va keyin silliq yo'qoladi.
 
-## ✨ Asosiy Xususiyatlar
+Dark Mode: Saytda tun va kun rejimlari mavjud. Foydalanuvchi quyosh yoki oy belgisini bosish orqali rejimni almashtirishi mumkin. Tanlangan rejim brauzer xotirasida saqlanadi va sahifa yangilanganda ham saqlanib qoladi.
 
-* **To'liq Responsiv Dizayn:** Barcha qurilmalar uchun moslashuvchan.
-* **Ko'p Tillilik (i18n):** UZ, RU, EN tillarini qo'llab-quvvatlaydi.
-* **Avtorizatsiya Sahifalari:** `login.html`, `register.html`.
-* **Qonuniy Sahifalar:** `privacy.html`, `terms.html`.
-* **Asosiy E-Commerce Seksiyalari:** Aksiyalar, Bestsellerlar, Yangi kelganlar va Kategoriya bloklari.
+Mahsulotlar katalogi: Monitorlar, noutbuklar, videokartalar va boshqa ko'plab kategoriyalar bo'yicha mahsulotlar chiroyli kartochkalar ko'rinishida taqdim etilgan.
 
-## 📁 Fayl Tuzilishi
+Ishlatilgan texnologiyalar
+HTML5: Sahifaning semantik tuzilishi uchun.
 
-Loyiha soddaligi va tartibni saqlash uchun quyidagi asosiy fayl tuzilishiga ega:
+CSS3: Custom properties (variables), animatsiyalar va zamonaviy dizayn uchun.
 
+JavaScript: DOM manipulyatsiyasi, LocalStorage bilan ishlash va savat logikasi uchun.
 
-techzone-website/
-│
-├── index.html
-├── about.html
-├── register.html
-├── login.html
-├── products.html
-├── category.html
-├── product-detail.html
-├── cart.html
-│
-├── css/
-│   ├── style.css
-│   ├── auth.css
-│   ├── about.css
-│   ├── products.css
-│   └── responsive.css
-│
-├── js/
-│   ├── main.js
-│   ├── auth.js
-│   ├── products.js
-│   └── cart.js
-│
-├── images/
-│   ├── banner.jpg
-│   ├── about-hero.jpg
-│   ├── products/
-│   └── brands/
-│
-└── README.md
+Font Awesome: Sifatli ikonkalardan foydalanish uchun.
+
+O'rnatish va ishga tushirish
+Loyihani mahalliy kompyuteringizda ishga tushirish uchun:
+
+Repository-ni nusxalab oling: git clone https://github.com/SHAYN-JS/TechZone-Final-2.git
+
+Loyiha papkasiga kiring: cd TechZone-Final-2
+
+index.html faylini istalgan brauzerda oching.
+
+Muallif
+Loyiha SHAYN-JS tomonidan ishlab chiqilgan va Netlify platformasiga muvaffaqiyatli joylashtirilgan.
